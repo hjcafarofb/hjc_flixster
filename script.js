@@ -1,5 +1,6 @@
 const movie_board = document.getElementsByClassName("movies-grid")[0];
-
+const search_bar = document.getElementById("search-bar");
+const search_form = document.getElementById("search-form");
 
 const movies = [
     {
@@ -119,17 +120,18 @@ function generateMovieCard(movie_data){
 }
 
 function addMovieToPanel(movie_data){
-    console.log('movie_data: ', movie_data);
+    //console.log('movie_data: ', movie_data);
     movie_board.innerHTML += generateMovieCard(movie_data);
 
  }
 
+ function processSearch(){
+    console.log(search_bar.value);
+    search_bar.value = "";
+ }
+
 function addEventListeners(){
-    document.addEventListener("keydown", (event) =>{  
-        if(event.key == 'e'){
-            movie_board.innerHTML = "";
-        }
-    } );
+    search_form.addEventListener("submit", processSearch);
 }
 
 window.onload = function () {

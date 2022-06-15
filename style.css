@@ -6,6 +6,34 @@
     color:goldenrod;
 }
 
+.search-header {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 5px solid goldenrod;
+}
+
+#search-bar {
+    background-color: goldenrod;
+    font-size: 25px;
+    color: black;
+    border-radius: 5px;
+    width: 200px;
+    height: 30px;
+}
+
+::placeholder{
+    color : black;
+}
+
+#search-submit{
+    border-radius:5px;
+    background-color: goldenrod;
+    color: black;
+    height: 30px;
+    width: 30px;
+}
 
 h1 {
     text-align: center;
