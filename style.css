@@ -1,1 +1,39 @@
+* {
+    padding:0;
+    margin:0;
+    border-width:0;
+    background-color: black;
+    color:goldenrod;
+}
+
+
+h1 {
+    text-align: center;
+    color:goldenrod;
+    font-size: 100px;
+    border-bottom: 5px solid goldenrod;
+}
+
+.movie-list{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+    justify-content: flex-start;
+}
+
+.movie-panel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border : 5px solid goldenrod;
+    padding : 3px;
+    margin: 10px;
+    width: 250px;
+}
+
+.poster-image{
+    max-width: 240px;
+    max-height: 300px;
+}
 
