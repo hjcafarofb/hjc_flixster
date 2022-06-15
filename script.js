@@ -5,6 +5,7 @@ const search_bar = document.getElementById("search-input");
 const search_form = document.getElementById("search-form");
 const more_movies_btn = document.getElementById("load-more-movies-btn");
 
+
 var global_page_id = 1;
 
 const movies = [
@@ -138,6 +139,7 @@ function addMovieToPanel(movie_data){
  }
 
  function processSearch(){
+    document.getElementsByClassName("showing-header")[0].innerHTML = "Results";
     query_string = search_bar.value;
     console.log(search_bar.value);
     search_bar.value = "";
