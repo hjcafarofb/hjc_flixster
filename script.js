@@ -114,14 +114,21 @@ const movies = [
  
 function generateMovieCard(movie_data){
     title = movie_data.original_title;
-    imgURL = "https://image.tmdb.org/t/p/w500" + movie_data.poster_path; 
     vote = movie_data.vote_average;
+    var return_string = `<div class="movie-card">
+    <span class="movie-title"> ${title} </span>  `;
 
-    return `<div class="movie-card">
-                <span class="movie-title"> ${title} </span>  
-                <img src="${imgURL}" alt="a movie poster" class="movie-poster">
-                <span class="movie-votes"> ${vote}/10</span>
-            </div>`;
+    if(movie_data.poster_path){
+        imgURL = "https://image.tmdb.org/t/p/w500" + movie_data.poster_path;
+        return_string +=`<img class="movie-poster" src=${imgURL} alt="A movie poster">`;
+    }else{
+        return_string +=`<img class="movie-poster" src="redx.png" alt="A red x">`;
+    }
+
+    return_string += `<span class="movie-votes"> ${vote}/10</span>
+    </div>`;
+
+    return return_string;
 }
 
 function addMovieToPanel(movie_data){
@@ -131,8 +138,13 @@ function addMovieToPanel(movie_data){
  }
 
  function processSearch(){
+    query_string = search_bar.value;
     console.log(search_bar.value);
     search_bar.value = "";
+    movie_board.innerHTML = "";
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_key}&language=en-US&query=${query_string}`)
+        .then(response => response.json())
+        .then(data => processList(data));
  }
 
 function addEventListeners(){
@@ -141,17 +153,13 @@ function addEventListeners(){
 }
 
 function processList(movie_data_json){
-    
-
     movie_array = movie_data_json["results"];
     //console.log('movie_array: ', movie_array[0]);
     movie_array.forEach(addMovieToPanel);
-
-    
 }
 
 function add_now_playing(){
-    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=cf209f923568a598d6bbcecff1f78e5d&language=en-US&page=${global_page_id}`)
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_key}&language=en-US&page=${global_page_id}&include_adult=false`)
         .then(response => response.json())
         .then(data => processList(data));
     global_page_id += 1;
