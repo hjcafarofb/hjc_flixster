@@ -14,7 +14,7 @@
     border-bottom: 5px solid goldenrod;
 }
 
-#search-bar {
+#search-input {
     background-color: goldenrod;
     font-size: 25px;
     color: black;
@@ -74,3 +74,15 @@ h1 {
     max-height: 300px;
 }
 
+.bottom-header{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#load-more-movies-btn {
+    background-color: goldenrod;
+    width:30px;
+    height:30px;
+    border-radius: 5px;
+}

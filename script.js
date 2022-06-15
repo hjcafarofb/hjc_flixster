@@ -1,6 +1,11 @@
+const API_key = 'cf209f923568a598d6bbcecff1f78e5d';
+
 const movie_board = document.getElementsByClassName("movies-grid")[0];
-const search_bar = document.getElementById("search-bar");
+const search_bar = document.getElementById("search-input");
 const search_form = document.getElementById("search-form");
+const more_movies_btn = document.getElementById("load-more-movies-btn");
+
+var global_page_id = 1;
 
 const movies = [
     {
@@ -108,9 +113,9 @@ const movies = [
  ];
  
 function generateMovieCard(movie_data){
-    title = movie_data.title;
-    imgURL = "https://image.tmdb.org/t/p/w500" + movie_data.posterPath; 
-    vote = movie_data.voteAverage;
+    title = movie_data.original_title;
+    imgURL = "https://image.tmdb.org/t/p/w500" + movie_data.poster_path; 
+    vote = movie_data.vote_average;
 
     return `<div class="movie-card">
                 <span class="movie-title"> ${title} </span>  
@@ -132,13 +137,33 @@ function addMovieToPanel(movie_data){
 
 function addEventListeners(){
     search_form.addEventListener("submit", processSearch);
+    more_movies_btn.addEventListener("click", add_now_playing);
+}
+
+function processList(movie_data_json){
+    
+
+    movie_array = movie_data_json["results"];
+    //console.log('movie_array: ', movie_array[0]);
+    movie_array.forEach(addMovieToPanel);
+
+    
+}
+
+function add_now_playing(){
+    fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=cf209f923568a598d6bbcecff1f78e5d&language=en-US&page=${global_page_id}`)
+        .then(response => response.json())
+        .then(data => processList(data));
+    global_page_id += 1;
 }
 
 window.onload = function () {
     movie_board.innerHTML = "";
     addEventListeners();
-    //console.log("hellp")
-    movies.forEach(addMovieToPanel);
+    //movies.forEach(addMovieToPanel);
+
+    add_now_playing();
+    
     
     // execute your functions here to make sure they run as soon as the page loads
   }

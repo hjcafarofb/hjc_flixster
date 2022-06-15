@@ -11,12 +11,12 @@
     <h1 class="main-header">Flixster</h1>
     <div class="search-header">
         <form action="" id="search-form" onsubmit="return false">
-            <input type="text" id="search-bar" placeholder="Search">
+            <input type="text" id="search-input" placeholder="Search">
             <input type="submit" id="search-submit" value="  "> 
         </form>
     </div>
     <div class="showing-header">Now Playing:</div>
-    <div class="movies-grid">
+    <div id="movies-grid" class="movies-grid">
         <div class="movie-card">
             After Hours 
             <img src="after-hours-test.jpg" alt="a movie poster" class="poster-image">
@@ -79,6 +79,9 @@
         
         
         
+    </div>
+    <div class="bottom-header">
+        <input type="button" id="load-more-movies-btn">
     </div>
     <script src="script.js"></script>
 </body>
