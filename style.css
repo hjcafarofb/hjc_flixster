@@ -12,27 +12,36 @@ h1 {
     color:goldenrod;
     font-size: 100px;
     border-bottom: 5px solid goldenrod;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
 }
 
-.movie-list{
+.showing-header {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.movies-grid{
     display: flex;
     flex-wrap: wrap;
     margin: 10px;
     justify-content: flex-start;
 }
 
-.movie-panel{
+.movie-card{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     border : 5px solid goldenrod;
     padding : 3px;
     margin: 10px;
     width: 250px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 
-.poster-image{
+.movie-poster{
     max-width: 240px;
     max-height: 300px;
 }
