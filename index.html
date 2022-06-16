@@ -12,17 +12,20 @@
     <div class="search-header">
         <form action="" id="search-form" onsubmit="return false">
             <input type="text" id="search-input" placeholder="Search">
-            <input type="submit" id="search-submit" value="  "> 
         </form>
+        <button type="button" id="search-submit" class="button" value=""><div class = "arrow right"></div></button> 
     </div>
-    <div class="showing-header">Now Playing:</div>
+    <div class="showing-header">
+       <span id="showing-header-text"> Now Playing </span>
+        <input type="button" id="close-search-btn" class="button closed">
+    </div>
     <div id="movies-grid" class="movies-grid">
         
         
         
     </div>
     <div class="bottom-header">
-        <input type="button" id="load-more-movies-btn">
+        <button type="button" id="load-more-movies-btn" class="button"><div class = "arrow down"></div></button> 
     </div>
     <script src="script.js"></script>
 </body>
