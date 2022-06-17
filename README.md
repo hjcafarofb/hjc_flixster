@@ -40,9 +40,8 @@ Deployed Application (optional): [Flixster Deployed Site](https://hjcafarofb.git
 
 ### Walkthrough Video
 
+https://user-images.githubusercontent.com/107445434/174411938-18b93b93-089f-481e-86ff-38907051c594.mp4
 
-<!-- copy and paste. Modify height and width if desired. -->
-<iframe class="embeddedObject shadow resizable" name="embedded_content" scrolling="no" frameborder="0" type="text/html" style="overflow:hidden;" src="https://www.screencast.com/users/hjcafaro/folders/Capture/media/a9705fa2-350f-4f41-a7f5-76fd4eef6f0a/embed" height="1080" width="1728" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 ### Reflection
 
@@ -60,8 +59,6 @@ I didn't try to overstep my bounds and create a very complicated CSS styling for
 
 ### Open-source libraries used
 
-- Add any links to open-source libraries used in your project.
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
