@@ -116,9 +116,14 @@ h1 {
     border : 5px solid goldenrod;
     padding : 0px;
     margin: 10px;
-    font-size: large;
+    
     z-index: 1;
 
+}
+
+.advanced-card *{
+    font-size: large;
+    color: goldenrod;
 }
 
 .header-adv{
@@ -127,6 +132,7 @@ h1 {
 }
 
 .overview-adv{
+    font-size: medium;
     padding:2px;
 }
 

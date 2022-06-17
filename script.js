@@ -101,8 +101,11 @@ async function addMovieToPanel(movie_data){
  }
 
  function processSearch(){
-    showing_header_txt.innerHTML = "Results";
     query_string = search_bar.value;
+    if(query_string == ""){
+        return;
+    }
+    showing_header_txt.innerHTML = "Results";
     more_movies_btn.classList.add("closed");
     refresh_btn.classList.remove("closed");
     search_bar.value = "";
