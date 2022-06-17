@@ -50,15 +50,15 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+In general the labs were helpful in preparing me to complete this assignment. The GIPHY API lab helped me get the hang of working with APIs and the previous labs helped me learn enough basic javascript and css to build out the core of the website. It would have been helpful to learn a little more about the nuances of CSS in order to implement the hover boxes and the grid system in a more efficient way. 
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
-  
-Add your response here
+
+With more time I would have made a more in depth way of processing movie data that would handle missing data gracefully, deal with language issues or missing pictures, and sort and order movies by relevance to the search query. 
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+I didn't try to overstep my bounds and create a very complicated CSS styling for the website, and I stuck to a simply colored and minimalistic design. In the future I will try to plan better at the beginning of the project, including developing a detailed wireframe, so I don't have to deal with issues of modifying layout and styling during the project as I add new features. In the future I would like to have a better handle on styling principles like color, font, and balance. 
 
 ### Open-source libraries used
 
