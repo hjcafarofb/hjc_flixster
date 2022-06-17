@@ -42,9 +42,10 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
 
-`ADD_EMBEDDED_CODE_HERE`
+<!-- copy and paste. Modify height and width if desired. -->
+<iframe class="embeddedObject shadow resizable" name="embedded_content" scrolling="no" frameborder="0" type="text/html" 
+        style="overflow:hidden;" src="https://www.screencast.com/users/hjcafaro/folders/Capture/media/a9705fa2-350f-4f41-a7f5-76fd4eef6f0a/embed" height="1080" width="1728" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 ### Reflection
 
