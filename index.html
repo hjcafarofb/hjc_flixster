@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://kit.fontawesome.com/5cd2be0779.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flixster</title>
     <link rel="stylesheet" href="style.css">
@@ -11,13 +12,14 @@
     <h1 class="main-header">Flixster</h1>
     <div class="search-header">
         <form action="" id="search-form" onsubmit="return false">
-            <input type="text" id="search-input" placeholder="Search">
+            <input type="text" id="search-input" placeholder="" aria-label="Search Input">
         </form>
-        <button type="button" id="search-submit" class="button" value=""><div class = "arrow right"></div></button> 
+        <button type="button" id="search-submit" class="button" aria-label="Submit Search"><i class="fa-solid fa-angle-right"></i></button> 
     </div>
     <div class="showing-header">
        <span id="showing-header-text"> Now Playing </span>
-        <input type="button" id="close-search-btn" class="button closed">
+       <button type="button" id="close-search-btn" class="button closed" aria-label="Close Search"><i class="fa-solid fa-xmark"></i></button> 
+
     </div>
     <div id="movies-grid" class="movies-grid">
         
@@ -25,7 +27,7 @@
         
     </div>
     <div class="bottom-header">
-        <button type="button" id="load-more-movies-btn" class="button"><div class = "arrow down"></div></button> 
+        <button type="button" id="load-more-movies-btn" class="button" aria-label="Load More Movies"><i class="fa-solid fa-angle-down"></i></button> 
     </div>
     <script src="script.js"></script>
 </body>
