@@ -21,12 +21,13 @@ async function getOverviewCard(movie_data){
     let advanced_data = await(response.json());
     
     console.log('advanced_data: ', advanced_data.genres);
-
-    let header_1 = `<div class="header-1"> 
+    let header_0 = `<div class="header-adv"> 
+                        ${movie_data.title} </div>`;
+    let header_1 = `<div class="header-adv"> 
                         ${advanced_data.runtime} mins. 
                         Released ${movie_data.release_date.substring(0,4)}</div>`;
 
-    let header_2 = `<div class="header-1">`;
+    let header_2 = `<div class="header-adv">`;
     for(let i = 0; i < advanced_data.genres.length-1; i++){
         header_2 += `${advanced_data.genres[i].name}, `;
     }
@@ -38,7 +39,10 @@ async function getOverviewCard(movie_data){
         overview_text = overview_text.substring(0,450) + "...";
     }
 
+    overview_text=`<div class="overview-adv"> ${overview_text}</div>`
+
     return `<div class="advanced-card hidden"> 
+                ${header_0}
                 ${header_1}
                 ${header_2}
                 ${overview_text} 

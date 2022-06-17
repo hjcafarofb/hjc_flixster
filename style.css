@@ -112,15 +112,22 @@ h1 {
     position: absolute;
     top:-10px;
     left:-10px;
-    width:250px;
+    width: 250px;
     border : 5px solid goldenrod;
-    padding : 3px;
+    padding : 0px;
     margin: 10px;
     font-size: large;
+    z-index: 1;
+
 }
 
-.header-1{
+.header-adv{
     border-bottom: 3px solid goldenrod;
+    padding:2px;
+}
+
+.overview-adv{
+    padding:2px;
 }
 
 .advanced-card.hidden{
