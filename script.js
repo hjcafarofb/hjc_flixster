@@ -10,29 +10,27 @@ const showing_header_txt = document.getElementById("showing-header-text");
 
 var global_page_id = 1;
 
-function processMovie(data){
-    console.log('data: ', data);
-
-}
-
 async function getOverviewCard(movie_data){
-
     let response = await fetch(`https://api.themoviedb.org/3/movie/${movie_data.id}?api_key=${API_key}&language=en-US`);
     let advanced_data = await(response.json());
     
-    console.log('advanced_data: ', advanced_data.genres);
+    //console.log('advanced_data: ', advanced_data.genres);
     let header_0 = `<div class="header-adv"> 
                         ${movie_data.title} </div>`;
     let header_1 = `<div class="header-adv"> 
                         ${advanced_data.runtime} mins. 
                         Released ${movie_data.release_date.substring(0,4)}</div>`;
 
-    let header_2 = `<div class="header-adv">`;
-    for(let i = 0; i < advanced_data.genres.length-1; i++){
-        header_2 += `${advanced_data.genres[i].name}, `;
+    let header_2 = "";
+    if(advanced_data.genres.length > 0){
+        header_2 = `<div class="header-adv">`;
+        for(let i = 0; i < advanced_data.genres.length-1; i++){
+            header_2 += `${advanced_data.genres[i].name}, `;
+        }
+        header_2 += `${advanced_data.genres[advanced_data.genres.length-1].name}`;
+        header_2 += `</div>`;
     }
-    header_2 += `${advanced_data.genres[advanced_data.genres.length-1].name}`;
-    header_2 += `</div>`;
+    
 
     let overview_text = movie_data.overview;
     if(overview_text.length>450){
@@ -50,11 +48,6 @@ async function getOverviewCard(movie_data){
 }
  
 async function generateMovieCard(movie_data){
-
-
-    
-    
-
     title = movie_data.original_title;
     vote = movie_data.vote_average;
     var return_string = `<div class="movie-card">
@@ -78,7 +71,6 @@ async function generateMovieCard(movie_data){
                         onmouseleave="removeHoverText(this)">
                         ${return_string} 
                         ${advanced_card}
-
                     </div>`
 
     return return_string;
@@ -133,7 +125,9 @@ function addEventListeners(){
 
 function processList(movie_data_json){
     movie_array = movie_data_json["results"];
-    //console.log('movie_array: ', movie_array[0]);
+    if(movie_array.length == 0){
+        showing_header_txt.innerHTML = "No Results";
+    }
     movie_array.forEach(addMovieToPanel);
 }
 
