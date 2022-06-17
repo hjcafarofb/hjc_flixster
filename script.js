@@ -9,12 +9,53 @@ const refresh_btn = document.getElementById("close-search-btn");
 const showing_header_txt = document.getElementById("showing-header-text");
 
 var global_page_id = 1;
+
+function processMovie(data){
+    console.log('data: ', data);
+
+}
+
+async function getOverviewCard(movie_data){
+
+    let response = await fetch(`https://api.themoviedb.org/3/movie/${movie_data.id}?api_key=${API_key}&language=en-US`);
+    let advanced_data = await(response.json());
+    
+    console.log('advanced_data: ', advanced_data.genres);
+
+    let header_1 = `<div class="header-1"> 
+                        ${advanced_data.runtime} mins. 
+                        Released ${movie_data.release_date.substring(0,4)}</div>`;
+
+    let header_2 = `<div class="header-1">`;
+    for(let i = 0; i < advanced_data.genres.length-1; i++){
+        header_2 += `${advanced_data.genres[i].name}, `;
+    }
+    header_2 += `${advanced_data.genres[advanced_data.genres.length-1].name}`;
+    header_2 += `</div>`;
+
+    let overview_text = movie_data.overview;
+    if(overview_text.length>450){
+        overview_text = overview_text.substring(0,450) + "...";
+    }
+
+    return `<div class="advanced-card hidden"> 
+                ${header_1}
+                ${header_2}
+                ${overview_text} 
+            </div>`;
+}
  
-function generateMovieCard(movie_data){
+async function generateMovieCard(movie_data){
+
+
+    
+    
+
     title = movie_data.original_title;
     vote = movie_data.vote_average;
     var return_string = `<div class="movie-card">
-    <span class="movie-title"> ${title} </span>  `;
+                            
+                                <span class="movie-title"> ${title} </span>  `;
 
     if(movie_data.poster_path){
         imgURL = "https://image.tmdb.org/t/p/w500" + movie_data.poster_path;
@@ -26,11 +67,32 @@ function generateMovieCard(movie_data){
     return_string += `<span class="movie-votes"> ${vote}/10</span>
     </div>`;
 
+    advanced_card = await getOverviewCard(movie_data);
+
+    return_string = `<div class="card-wrapper" 
+                        onmouseenter="addHoverText(this)"
+                        onmouseleave="removeHoverText(this)">
+                        ${return_string} 
+                        ${advanced_card}
+
+                    </div>`
+
     return return_string;
 }
 
-function addMovieToPanel(movie_data){
-    movie_board.innerHTML += generateMovieCard(movie_data);
+function addHoverText(x){
+    x.children[1].classList.remove("hidden");
+
+}
+
+function removeHoverText(x){
+    x.children[1].classList.add("hidden");
+
+}
+
+async function addMovieToPanel(movie_data){
+    new_card = await generateMovieCard(movie_data);
+    movie_board.innerHTML += new_card;
 
  }
 
