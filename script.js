@@ -14,7 +14,6 @@ async function getOverviewCard(movie_data){
     let response = await fetch(`https://api.themoviedb.org/3/movie/${movie_data.id}?api_key=${API_key}&language=en-US`);
     let advanced_data = await(response.json());
     
-    //console.log('advanced_data: ', advanced_data.genres);
     let header_0 = `<div class="header-adv"> 
                         ${movie_data.title} </div>`;
     let header_1 = `<div class="header-adv"> 
